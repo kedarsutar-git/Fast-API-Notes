@@ -398,6 +398,7 @@ HTTP 201 Created
 # The complete picture
 
 '''
+
                     CLIENT
                        │
                        │ POST /tasks
@@ -426,5 +427,5 @@ HTTP 201 Created
                        │
                        ▼
                     CLIENT
-'''
 
+'''
