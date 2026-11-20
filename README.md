@@ -295,9 +295,6 @@ Use a `notes/` folder with one file per day (`notes/day-01.md`, …) covering: w
 
 This is a personal learning repo, but suggestions and corrections are welcome — open an issue or PR.
 
-## 📄 License
-
-MIT — see [LICENSE](LICENSE).
 
 ---
 
