@@ -1,7 +1,7 @@
 products = [
     {
     "id":1,    
-    "name":"Mac Book",
+    "name":"MacBook",
     "count":100,
     "Price":450000},
 
