@@ -2,6 +2,9 @@ from fastapi import FastAPI,HTTPException
 from pydantic import BaseModel,Field
 from mockData import products
 
+
+
+# Request Body
 class ProductResponse(BaseModel):
     id: int
     name: str
@@ -19,7 +22,7 @@ def get_User(user_id:int):
     raise HTTPException(status_code=404,detail="prouct is not found")
 
     
-        
+# Response Body   
 class productRequest(BaseModel):
     Status:str
     product : list["productRequest"]
@@ -32,5 +35,7 @@ def productcreate(productData:productRequest):
 
     return {"Status":"Product is Created",
             "Product":products}
+
+    
 
 
