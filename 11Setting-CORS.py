@@ -7,7 +7,6 @@ SECRET_KEY = "my-super-secret-key"
 
 # This is problem 
 # Why ?
-
 # Because configuration and secrets are now directly inside your source code.
 
 # Instead, we want:
@@ -41,6 +40,13 @@ DATABASE_URL=postgresql://...
 SECRET_KEY=abc123
 
 '''
+# Read env vars in python
+
+import os 
+name = os.getenv("MY_NAME", "World")
+print(f"Hello {name} from python")
+
+
 
 # Why use environment variables?
 
@@ -69,12 +75,15 @@ Only the environment variables change.
 '''
 
 # 4. Why do we need Pydantic Settings?
-
 # Without Pydantic Settings, you could manually read environment variables:
+
 
 import os
 
 database_url = os.getenv("DATABASE_URL")
+
+
+
 '''
 But then you have to manually handle:
 
@@ -87,6 +96,7 @@ But then you have to manually handle:
 Pydantic Settings makes this much cleaner.
 
 '''
+
 # You define:
 
 from pydantic_settings import BaseSettings
@@ -100,13 +110,6 @@ class Settings(BaseSettings):
 
 
 
-# Example:
-class settings(BaseSettings):
-    app_name : str = "Task managment API"
-    admin_email : str
-    item_per_user : int = 50
-
-settings = settings()
 
 # Using settings inside FastAPI
 
@@ -131,6 +134,21 @@ def info():
         "item_per_user" : settings.item_per_user
 
     }
+
+
+'''
+$Env:ADMIN_EMAIL = "deadpool@example.com"
+$Env:APP_NAME = "ChimichangApp"
+uv run fastapi run main.py
+
+
+And then the admin_email setting would be set to "deadpool@example.com".
+The app_name would be "ChimichangApp".
+And the items_per_user would keep its default value of 50.
+
+'''
+
+
 
 
 # 12. Settings in another module
@@ -425,7 +443,3 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
                  API endpoint
 
 '''
-
-
-
-
