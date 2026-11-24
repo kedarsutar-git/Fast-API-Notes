@@ -15,3 +15,9 @@ products = [
 ]
 
 
+
+
+USERS = {
+    "alice-token": {"username": "alice", "role": "admin"},
+    "bob-token": {"username": "bob", "role": "user"},
+}
