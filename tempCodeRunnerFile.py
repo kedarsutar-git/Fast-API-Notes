@@ -1,4 +1,8 @@
+def get_data():
+    print("Start")
 
-import os 
-name = os.getenv("MY_NAME", "World")
-print(f"Hello {name} from python")
+    yield "Hello"
+
+    print("End")
+
+get_data()
