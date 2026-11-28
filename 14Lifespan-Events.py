@@ -105,9 +105,9 @@ def load_model():
     print("Loading model..")
     return "MY Ml MODEL"
 
-@asynccontextmanager
 
-async def lifeepen(app:FastAPI):
+@asynccontextmanager
+async def lifespan(app:FastAPI):
     # Startup
     ml_model["model"] = load_model()
 
@@ -155,7 +155,7 @@ async def predict():
           └───────────┼───────────┘
                       ▼
                Same ML model
-                      │
+                      │ 
                       ▼
               Application stops
                       │
@@ -223,6 +223,7 @@ After yield → shutdown
 
 # Dependency
 # Usually related to a request:
+
 '''
 Request
    ↓
@@ -408,3 +409,6 @@ app = FastAPI(lifespan=lifespan)
                     ▼
                   STOP
 '''
+
+
+
